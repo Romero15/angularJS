@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style>
+    input.ng-invalid {
+      background-color: pink;
+    }
+    input.ng-valid {
+      background-color: lightgreen;
+    }
+</style>
+
+
+<style>
+    form.ng-pristine {
+      background-color: lightblue;
+    }
+    form.ng-dirty {
+      background-color: pink;
+    }
+</style>    
+    
+
+<body>
+
+<div ng-app="">
+  <form name="myForm">
+    Escribe algo: <input type="text" name="text" ng-model="text" required>
+    <p ng-show="myForm.text.$touched && myForm.text.$invalid">Escribe algo</p>
+    <br>
+    Marca para mostrar cabecera:
+    <input type="checkbox" ng-model="myVar">
+    <br>
+    Empresa:
+    <select ng-model="empresa">
+      <option value="">
+      <option value="Accenture">Accenture
+      <option value="Deloitte">Deloitte
+      <option value="Ineco">Ineco
+    </select>
+    <br>
+    Email:<input name="email" ng-model="email" type="email">
+    <p>Email valido: {{myForm.email.$valid}}</p>
+  </form>
+  <h1>Has introducido: {{text}}<span ng-if="empresa && text">, </span><span ng-if="empresa">{{empresa}}</span><span ng-if="email"> {{email}}</span></h1>
+  <h1 ng-show="myVar">Cabecera</h1>
+</div>
+
+</body>
+</html>
+
+  
+  
